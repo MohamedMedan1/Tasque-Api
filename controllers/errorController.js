@@ -35,12 +35,12 @@ const handleDevelopmentResponse = (res, err) => {
 
 const handleProductionResponse = (res, err) => {
   if (err.isOperational) {
-    res.status(err.statusCode).json({
+    return res.status(err.statusCode).json({
       status:err.status,
       message: err.message,
     })
   }
-  res.status(500).json({
+  return res.status(500).json({
     status: 'error',
     message:'Something went very wrong!'
   })  
