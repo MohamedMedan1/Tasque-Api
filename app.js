@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-const dotenv = require('dotenv');
 const rateLimit = require('express-rate-limit'); 
 const helmet = require('helmet');
 const xss = require('xss-clean');
@@ -9,7 +8,6 @@ const hpp = require('hpp');
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
-dotenv.config({ path: './config.env' });
 const taskRouter = require('./routes/taskRoutes');
 const userRouter = require('./routes/userRoutes');
 const AppError = require('./utils/appError');
